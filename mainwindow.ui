@@ -110,7 +110,7 @@
        <x>10</x>
        <y>25</y>
        <width>211</width>
-       <height>100</height>
+       <height>131</height>
       </rect>
      </property>
      <property name="title">
@@ -174,36 +174,17 @@
        <x>10</x>
        <y>130</y>
        <width>211</width>
-       <height>150</height>
+       <height>125</height>
       </rect>
      </property>
      <property name="title">
       <string>Bound Buggane Draught</string>
      </property>
-     <widget class="QRadioButton" name="bbNone">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>25</y>
-        <width>89</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>None</string>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-      <attribute name="buttonGroup">
-       <string notr="true">bgroupBuggane</string>
-      </attribute>
-     </widget>
      <widget class="QRadioButton" name="bbFifteen">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>50</y>
+        <y>25</y>
         <width>191</width>
         <height>20</height>
        </rect>
@@ -212,10 +193,26 @@
        <string>R8L0+: 15%</string>
       </property>
       <attribute name="buttonGroup">
-       <string notr="true">bgroupBuggane</string>
+       <string notr="true">bgroupMinorelic</string>
       </attribute>
      </widget>
      <widget class="QRadioButton" name="bbTwentyfive">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>201</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>R6L0 - R7L9: 25%</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">bgroupMinorelic</string>
+      </attribute>
+     </widget>
+     <widget class="QRadioButton" name="bbFifty">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -225,13 +222,13 @@
        </rect>
       </property>
       <property name="text">
-       <string>R6L0 - R7L9: 25%</string>
+       <string>R4L0 - R5L9: 50%</string>
       </property>
       <attribute name="buttonGroup">
-       <string notr="true">bgroupBuggane</string>
+       <string notr="true">bgroupMinorelic</string>
       </attribute>
      </widget>
-     <widget class="QRadioButton" name="bbFifty">
+     <widget class="QRadioButton" name="bbSeventyfive">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -241,26 +238,10 @@
        </rect>
       </property>
       <property name="text">
-       <string>R4L0 - R5L9: 50%</string>
-      </property>
-      <attribute name="buttonGroup">
-       <string notr="true">bgroupBuggane</string>
-      </attribute>
-     </widget>
-     <widget class="QRadioButton" name="bbSeventyfive">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>125</y>
-        <width>201</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
        <string>R1L0 - R3L9: 75%</string>
       </property>
       <attribute name="buttonGroup">
-       <string notr="true">bgroupBuggane</string>
+       <string notr="true">bgroupMinorelic</string>
       </attribute>
      </widget>
     </widget>
@@ -356,7 +337,7 @@
      <property name="title">
       <string>Other</string>
      </property>
-     <widget class="QCheckBox" name="cboxBattlefieldPotion">
+     <widget class="QRadioButton" name="radioButton">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -368,6 +349,9 @@
       <property name="text">
        <string>Battlefield Potion: 25%</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">bgroupRpPotion</string>
+      </attribute>
      </widget>
     </widget>
     <widget class="QLabel" name="labelBuffBonus">
@@ -423,7 +407,6 @@
  <connections/>
  <buttongroups>
   <buttongroup name="bgroupMinorelic"/>
-  <buttongroup name="bgroupBuggane"/>
   <buttongroup name="bgroupRpPotion"/>
  </buttongroups>
 </ui>

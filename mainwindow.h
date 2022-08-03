@@ -19,6 +19,7 @@ public:
 
 private slots:
     void on_bgroupMinorelic_idToggled(int val);
+    void on_bgroupRpPotion_idToggled(int val);
 
 private:
     RPCalc* rpCalc;
