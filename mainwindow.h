@@ -18,11 +18,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_mrNone_toggled(bool checked);
-
-    void on_mrTen_toggled(bool checked);
-
-    void on_mrTwentyfive_toggled(bool checked);
+    void on_bgroupMinorelic_idToggled(int val);
 
 private:
     RPCalc* rpCalc;

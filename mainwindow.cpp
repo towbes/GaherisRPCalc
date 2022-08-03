@@ -15,29 +15,20 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_mrNone_toggled(bool checked)
-{
-    if (checked) {
-        rpCalc->setMinoBonus(0);
-        setBuffBonusLabel();
-    }
-}
-
-
-void MainWindow::on_mrTen_toggled(bool checked)
-{
-    if (checked) {
+void MainWindow::on_bgroupMinorelic_idToggled(int val) {
+    switch (val) {
+    //none (auto numbering starts at -2 and goes down
+    case -2:
+       rpCalc->setMinoBonus(0);
+        break;
+    case -3:
         rpCalc->setMinoBonus(10);
-        setBuffBonusLabel();
-    }
-}
-
-void MainWindow::on_mrTwentyfive_toggled(bool checked)
-{
-    if (checked) {
+        break;
+    case -4:
         rpCalc->setMinoBonus(25);
-        setBuffBonusLabel();
+        break;
     }
+    setBuffBonusLabel();
 }
 
 void MainWindow::setBuffBonusLabel() {
