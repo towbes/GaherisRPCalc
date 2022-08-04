@@ -8,48 +8,61 @@ public:
     RPCalc();
 
     //Base points
-    int getSealBase();
-    int getServerBonus();
-    int getModSealBase();
+    float getSealBase();
+    float getServerBonus();
+    float getModSealBase();
+
+    //Per seal calculations
+    float getPerSealBuffs();
+    float getPerSealZone();
+    float getPerSealGuild();
+    float getPerSealItem();
+    float getPerSealTotal();
 
     //Category bonuses
-    int getBuffsBonus();
-    void setGuildBonus(int value);
-    void setNeckBonus(int value);
-    int getItemBonus();
+    float getBuffsBonus();
+    void setGuildBonus(float value);
+    void setNeckBonus(float value);
+    float getItemBonus();
 
     //Sub-category bonuses
-    void setMinoBonus(int value);
-    void setRpPotionBonus(int value);
-    void setBattlePotionBonus(int value);
-    void setZoneBonus(int value);
-    void setMythBonus(int value);
-    void setLeftWristBonus(int value);
-    void setRightWristBonus(int value);
-    void setBeltBonus(int value);
-    void setTwohandBonus(int value);
+    void setMinoBonus(float value);
+    void setRpPotionBonus(float value);
+    void setBattlePotionBonus(float value);
+    void setZoneBonus(float value);
+    void setMythBonus(float value);
+    void setLeftWristBonus(float value);
+    void setRightWristBonus(float value);
+    void setBeltBonus(float value);
+    void setTwohandBonus(float value);
+
+    //Seal calculator
+    float getSealsNeeded(int starting, int ending);
+    float getEffsNeeded(int starting, int ending);
+
 private:
 
     //Base points
-    int sealBase;
-    int serverBonus;
+    float sealBase;
+    float serverBonus;
 
     //Category Bonuses
-    int buffsBonus;
-    int zoneBonus;
-    int guildBonus;
-    int itemBonus;
+    float buffsBonus;
+    float zoneBonus;
+    float guildBonus;
+    float itemBonus;
 
     //Sub-category bonuses
-    int minoBonus;
-    int rpPotionBonus;
-    int battlePotionBonus;
-    int neckBonus;
-    int mythBonus;
-    int leftWristBonus;
-    int rightWristBonus;
-    int beltBonus;
-    int twohandBonus;
+    float minoBonus;
+    float rpPotionBonus;
+    float battlePotionBonus;
+    float neckBonus;
+    float mythBonus;
+    float leftWristBonus;
+    float rightWristBonus;
+    float beltBonus;
+    float twohandBonus;
+
 };
 
 #endif // RPCALC_H

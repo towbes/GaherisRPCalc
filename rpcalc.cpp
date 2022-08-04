@@ -1,4 +1,5 @@
 #include "rpcalc.h"
+#include <math.h>
 
 RPCalc::RPCalc()
 {
@@ -25,69 +26,123 @@ RPCalc::RPCalc()
 
 }
 
-int RPCalc::getSealBase() {
+float RPCalc::getSealBase() {
     return sealBase;
 }
 
-int RPCalc::getServerBonus() {
+float RPCalc::getServerBonus() {
     return serverBonus;
 }
 
-int RPCalc::getModSealBase() {
-    return sealBase * (serverBonus / 100);
+float RPCalc::getModSealBase() {
+    float plusMod = (float)serverBonus / 100;
+    float modSealBase = sealBase * plusMod;
+    float modSealTotal = sealBase + modSealBase;
+    return modSealTotal;
 }
 
-int RPCalc::getBuffsBonus(){
+float RPCalc::getPerSealBuffs() {
+    float plusBuffs = (float)getBuffsBonus() / 100;
+    return getModSealBase() * plusBuffs;
+}
+
+float RPCalc::getPerSealZone() {
+    float plusZone = (float)zoneBonus / 100;
+    return getModSealBase() * plusZone;
+}
+
+float RPCalc::getPerSealGuild() {
+    float plusGuild = (float)guildBonus / 100;
+    return getModSealBase() * plusGuild;
+}
+
+float RPCalc::getPerSealItem() {
+    float plusItem = (float)getItemBonus() / 100;
+    return getModSealBase() * plusItem;
+}
+
+float RPCalc::getPerSealTotal() {
+    return floor(getModSealBase()) + floor(getPerSealBuffs()) + floor(getPerSealZone()) + floor(getPerSealGuild()) + floor(getPerSealItem());
+}
+
+float RPCalc::getBuffsBonus(){
     buffsBonus = 0;
     buffsBonus += minoBonus + rpPotionBonus + battlePotionBonus;
     return buffsBonus;
 }
 
-int RPCalc::getItemBonus() {
+float RPCalc::getItemBonus() {
     itemBonus = 0;
     itemBonus += neckBonus + mythBonus + leftWristBonus + rightWristBonus + beltBonus + twohandBonus;
     return itemBonus;
 }
 
-void RPCalc::setMinoBonus(int value) {
+void RPCalc::setMinoBonus(float value) {
     minoBonus = value;
 }
 
-void RPCalc::setRpPotionBonus(int value) {
+void RPCalc::setRpPotionBonus(float value) {
     rpPotionBonus = value;
 }
-void RPCalc::setBattlePotionBonus(int value) {
+void RPCalc::setBattlePotionBonus(float value) {
     battlePotionBonus = value;
 }
 
-void RPCalc::setZoneBonus(int value) {
+void RPCalc::setZoneBonus(float value) {
     zoneBonus = value;
 }
 
-void RPCalc::setGuildBonus(int value) {
+void RPCalc::setGuildBonus(float value) {
     guildBonus = value;
 }
 
-void RPCalc::setNeckBonus(int value) {
+void RPCalc::setNeckBonus(float value) {
     neckBonus = value;
 }
 
-void RPCalc::setMythBonus(int value) {
+void RPCalc::setMythBonus(float value) {
     mythBonus = value;
 }
 
-void RPCalc::setLeftWristBonus(int value) {
+void RPCalc::setLeftWristBonus(float value) {
     leftWristBonus = value;
 }
 
-void RPCalc::setRightWristBonus(int value) {
+void RPCalc::setRightWristBonus(float value) {
     rightWristBonus = value;
 }
 
-void RPCalc::setBeltBonus(int value) {
+void RPCalc::setBeltBonus(float value) {
     beltBonus = value;
 }
 
-void RPCalc::setTwohandBonus(int value) {
+void RPCalc::setTwohandBonus(float value) {
     twohandBonus = value;
+}
+
+float RPCalc::getSealsNeeded(int starting, int ending) {
+    int rpNeeded = ending - starting;
+    if (getPerSealTotal() > 0) {
+        if (rpNeeded > 0) {
+            if (rpNeeded / getPerSealTotal() > 0) {
+                    return ceil(rpNeeded / getPerSealTotal());
+            } else {
+                return 1;
+            }
+        } else {
+            return 0;
+        }
+    } else {
+        return 0;
+    }
+}
+
+float RPCalc::getEffsNeeded(int starting, int ending) {
+    if (getSealsNeeded(starting, ending) / 250 > 1) {
+        return ceil(getSealsNeeded(starting, ending) / 250);
+    } else if (getSealsNeeded(starting, ending) == 0) {
+        return 0;
+    } else {
+        return 1;
+    }
 }

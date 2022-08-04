@@ -25,7 +25,8 @@ private slots:
 
     //Guild bonus
     void on_checkGuildBonus_toggled(bool checked);
-
+    //Zone bonus
+    void on_checkZoneBonus_toggled(bool checked);
     //Neck
     void on_bgroupNeck_idToggled(int val);
     //Myth
@@ -34,18 +35,25 @@ private slots:
     void on_bgroupLeftWrist_idToggled(int val);
     //Right wrist
     void on_bgroupRightWrist_idToggled(int val);
-
-
+    //belt
     void on_checkOrions_toggled(bool checked);
-
+    //twohand
     void on_checkTwohand_toggled(bool checked);
 
-    void on_checkZoneBonus_toggled(bool checked);
+
+
+    void on_comboStart_currentIndexChanged(int index);
+
+    void on_comboEnd_currentIndexChanged(int index);
+
+    void on_comboZoneBonus_currentIndexChanged(int index);
 
 private:
     RPCalc* rpCalc;
     Ui::MainWindow *ui;
     void setBuffBonusLabel();
     void setItemBonusLabel();
+    void fillComboBoxes();
+    void updateLabels();
 };
 #endif // MAINWINDOW_H

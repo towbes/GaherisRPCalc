@@ -841,7 +841,7 @@
     <property name="title">
      <string>Realm Points per Seal</string>
     </property>
-    <widget class="QLabel" name="label_5">
+    <widget class="QLabel" name="labelModBasePoints">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -854,7 +854,7 @@
       <string>You earn 3750 realm points.</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_6">
+    <widget class="QLabel" name="labelBuffPoints">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -867,7 +867,7 @@
       <string>You earn 0 extra realm points from buffs.</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_7">
+    <widget class="QLabel" name="labelZonePoints">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -880,7 +880,7 @@
       <string>You earn 1875 extra realm points for fighting in this zone.</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_8">
+    <widget class="QLabel" name="labelItemPoints">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -893,7 +893,7 @@
       <string>You earn 0 extra realm points from your artifact (items).</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_9">
+    <widget class="QLabel" name="labelGuildPoints">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -906,7 +906,7 @@
       <string>You earn 187 extra realm points from your guild merit bonus.</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_10">
+    <widget class="QLabel" name="labelPerSealPoints">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -950,7 +950,7 @@
       <string>Starting:</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="editStarting">
      <property name="geometry">
       <rect>
        <x>115</x>
@@ -960,7 +960,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="editEnding">
      <property name="geometry">
       <rect>
        <x>115</x>
@@ -981,6 +981,78 @@
      </property>
      <property name="text">
       <string>Ending:</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboStart">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>50</y>
+       <width>100</width>
+       <height>24</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboEnd">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>90</y>
+       <width>100</width>
+       <height>24</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelStartingPoints">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>150</y>
+       <width>351</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Starting Realm Points = 111,111,111</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelEndingPoints">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>180</y>
+       <width>351</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Ending Realm Points  = 111,111,111</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelSealsNeeded">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>230</y>
+       <width>201</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Seals needed: 9,999</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelEffsNeeded">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>255</y>
+       <width>201</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Effs needed: 9,999</string>
      </property>
     </widget>
    </widget>
