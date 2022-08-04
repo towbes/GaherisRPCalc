@@ -5,6 +5,8 @@ Design and calculations were copied from a tool made by mplode.
 
 Thanks to Gaheris players on discord that have shared their findings.  Please let me know if anything needs to be updated.
 
+Known Bug: Snatcher/Relic frag/orions does not cap at 10% in the calculations
+
 Here is what the tool looks like:
 ![GaherisRPCalc](https://raw.githubusercontent.com/towbes/GaherisRPCalc/master/gaherisrpcalc.PNG)
 
