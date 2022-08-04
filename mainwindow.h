@@ -48,6 +48,10 @@ private slots:
 
     void on_comboZoneBonus_currentIndexChanged(int index);
 
+    void on_editStarting_textEdited(const QString &arg1);
+
+    void on_editEnding_textEdited(const QString &arg1);
+
 private:
     RPCalc* rpCalc;
     Ui::MainWindow *ui;

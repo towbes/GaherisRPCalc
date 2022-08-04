@@ -187,10 +187,26 @@ void MainWindow::on_checkTwohand_toggled(bool checked)
 
 void MainWindow::on_comboStart_currentIndexChanged(int index)
 {
+    int startingRP = ui->comboStart->itemData(ui->comboStart->currentIndex()).toInt();
+    ui->editStarting->setText(QLocale(QLocale::English).toString((startingRP)));
     updateLabels();
 }
 
+//Manual start editing
+void MainWindow::on_editStarting_textEdited(const QString &arg1)
+{
+    updateLabels();
+}
+
+
 void MainWindow::on_comboEnd_currentIndexChanged(int index)
+{
+    int endingRP = ui->comboEnd->itemData(ui->comboEnd->currentIndex()).toInt();
+    ui->editEnding->setText(QLocale(QLocale::English).toString((endingRP)));
+    updateLabels();
+}
+
+void MainWindow::on_editEnding_textEdited(const QString &arg1)
 {
     updateLabels();
 }
@@ -226,12 +242,23 @@ void MainWindow::updateLabels() {
 
 
     //Calc totals
-    int startingRP = ui->comboStart->itemData(ui->comboStart->currentIndex()).toInt();
-    int endingRP = ui->comboEnd->itemData(ui->comboEnd->currentIndex()).toInt();
-    ui->editStarting->setText(QLocale(QLocale::English).toString((startingRP)));
+    int startingRP = 0;
+    int endingRP = 0;
+    //if starting was modified by the user, grab the starting text, otherwise use the combo value
+    if (ui->editStarting->isModified()) {
+         startingRP = ui->editStarting->text().toInt();
+    } else {
+        startingRP = ui->comboStart->itemData(ui->comboStart->currentIndex()).toInt();
+    }
+    //if ending was modified by the user, grab the starting text, otherwise use the combo value
+    if (ui->editEnding->isModified()) {
+        endingRP = ui->editEnding->text().toInt();
+    } else {
+        endingRP = ui->comboEnd->itemData(ui->comboEnd->currentIndex()).toInt();
+    }
+    //Update labels
     auto startingPrintable = QStringLiteral("Starting Realm Points = %1").arg(QLocale(QLocale::English).toString((startingRP)));
     ui->labelStartingPoints->setText(startingPrintable);
-    ui->editEnding->setText(QLocale(QLocale::English).toString((endingRP)));
     auto endingPrintable = QStringLiteral("Ending Realm Points = %1").arg(QLocale(QLocale::English).toString((endingRP)));
     ui->labelEndingPoints->setText(endingPrintable);
 
@@ -513,12 +540,3 @@ void MainWindow::fillComboBoxes() {
     ui->comboEnd->addItem("14L0", 187917143);
 
 }
-
-
-
-
-
-
-
-
-
