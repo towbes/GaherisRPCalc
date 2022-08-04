@@ -7,7 +7,11 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    //create a new calc object
     rpCalc = new RPCalc();
+    //Setup the zone bonus combo box
+    ui->comboZoneBonus->addItem("50%", 50);
+    ui->comboZoneBonus->addItem("100%", 100);
 }
 
 MainWindow::~MainWindow()
@@ -62,6 +66,7 @@ void MainWindow::on_bgroupRpPotion_idToggled(int val) {
         break;
     case -6:
         rpCalc->setRpPotionBonus(25);
+        break;
     }
     setBuffBonusLabel();
 }
@@ -70,3 +75,114 @@ void MainWindow::setBuffBonusLabel() {
     auto printable = QStringLiteral("%1%").arg(rpCalc->getBuffsBonus());
     ui->amtBuffBonus->setText(printable);
 }
+
+void MainWindow::on_checkZoneBonus_toggled(bool checked)
+{
+    if (checked) {
+        //Get the data from the comboZoneBonus box, cast it to an int
+        rpCalc->setZoneBonus((ui->comboZoneBonus->itemData(ui->comboZoneBonus->currentIndex())).toInt());
+    } else {
+        rpCalc->setZoneBonus(0);
+    }
+}
+
+void MainWindow::on_checkGuildBonus_toggled(bool checked)
+{
+    if (checked) {
+        rpCalc->setGuildBonus(5);
+    } else {
+        rpCalc->setGuildBonus(0);
+    }
+}
+
+void MainWindow::on_bgroupNeck_idToggled(int val) {
+    switch (val) {
+    case -2:
+        rpCalc->setNeckBonus(0);
+        break;
+    case -3:
+        rpCalc->setNeckBonus(3);
+        break;
+    case -4:
+        rpCalc->setNeckBonus(5);
+        break;
+    }
+    setItemBonusLabel();
+}
+
+void MainWindow::on_bgroupMyth_idToggled(int val) {
+    switch (val) {
+    case -2:
+        rpCalc->setMythBonus(0);
+        break;
+    case -3:
+        rpCalc->setMythBonus(2);
+        break;
+    case -4:
+        rpCalc->setMythBonus(3);
+        break;
+    case -5:
+        rpCalc->setMythBonus(4);
+        break;
+    case -6:
+        rpCalc->setMythBonus(6);
+        break;
+    }
+    setItemBonusLabel();
+}
+
+void MainWindow::on_bgroupLeftWrist_idToggled(int val) {
+    switch (val) {
+    case -2:
+        rpCalc->setLeftWristBonus(0);
+        break;
+    case -3:
+        rpCalc->setLeftWristBonus(6);
+        break;
+    case -4:
+        rpCalc->setLeftWristBonus(10);
+        break;
+    }
+    setItemBonusLabel();
+}
+
+void MainWindow::on_bgroupRightWrist_idToggled(int val) {
+    switch (val) {
+    case -2:
+        rpCalc->setRightWristBonus(0);
+        break;
+    case -3:
+        rpCalc->setRightWristBonus(10);
+        break;
+    }
+    setItemBonusLabel();
+}
+
+void MainWindow::on_checkOrions_toggled(bool checked)
+{
+    if (checked) {
+        rpCalc->setBeltBonus(5);
+    } else {
+        rpCalc->setBeltBonus(0);
+    }
+    setItemBonusLabel();
+}
+
+
+void MainWindow::on_checkTwohand_toggled(bool checked)
+{
+    if (checked) {
+        rpCalc->setTwohandBonus(5);
+    } else {
+        rpCalc->setTwohandBonus(0);
+    }
+    setItemBonusLabel();
+}
+
+void MainWindow::setItemBonusLabel() {
+    auto printable = QStringLiteral("%1%").arg(rpCalc->getItemBonus());
+    ui->amtItemBonus->setText(printable);
+}
+
+
+
