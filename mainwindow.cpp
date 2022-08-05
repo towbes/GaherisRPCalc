@@ -266,7 +266,7 @@ void MainWindow::updateLabels() {
     auto sealsPrintable = QStringLiteral("Seals needed: %1").arg(QLocale(QLocale::English).toString(sealsNeeded));
     ui->labelSealsNeeded->setText(sealsPrintable);
     int effsNeeded = rpCalc->getEffsNeeded(startingRP, endingRP);
-    auto effsPrintable  = QStringLiteral("Effs needed: %1").arg(effsNeeded);
+    auto effsPrintable  = QStringLiteral("Effulgent seals needed: %1").arg(effsNeeded);
     ui->labelEffsNeeded->setText(effsPrintable);
 }
 
