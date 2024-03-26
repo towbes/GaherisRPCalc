@@ -63,6 +63,9 @@ void MainWindow::on_bgroupRpPotion_idToggled(int val) {
         rpCalc->setRpPotionBonus(50);
         break;
     case -6:
+        rpCalc->setRpPotionBonus(100);
+        break;
+    case -7:
         rpCalc->setRpPotionBonus(25);
         break;
     }

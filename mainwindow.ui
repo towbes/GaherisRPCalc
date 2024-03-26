@@ -92,7 +92,7 @@
       <x>30</x>
       <y>125</y>
       <width>235</width>
-      <height>491</height>
+      <height>521</height>
      </rect>
     </property>
     <property name="font">
@@ -251,7 +251,7 @@
        <x>10</x>
        <y>280</y>
        <width>211</width>
-       <height>125</height>
+       <height>151</height>
       </rect>
      </property>
      <property name="title">
@@ -324,12 +324,28 @@
        <string notr="true">bgroupRpPotion</string>
       </attribute>
      </widget>
+     <widget class="QRadioButton" name="bbHundred_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>125</y>
+        <width>201</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>100%</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">bgroupRpPotion</string>
+      </attribute>
+     </widget>
     </widget>
     <widget class="QGroupBox" name="groupBox_6">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>405</y>
+       <y>440</y>
        <width>201</width>
        <height>51</height>
       </rect>
@@ -358,7 +374,7 @@
      <property name="geometry">
       <rect>
        <x>15</x>
-       <y>460</y>
+       <y>495</y>
        <width>91</width>
        <height>16</height>
       </rect>
@@ -371,7 +387,7 @@
      <property name="geometry">
       <rect>
        <x>110</x>
-       <y>460</y>
+       <y>495</y>
        <width>49</width>
        <height>16</height>
       </rect>
@@ -1081,11 +1097,11 @@
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="bgroupMinorelic"/>
   <buttongroup name="bgroupRpPotion"/>
   <buttongroup name="bgroupNeck"/>
-  <buttongroup name="bgroupMyth"/>
+  <buttongroup name="bgroupMinorelic"/>
   <buttongroup name="bgroupLeftWrist"/>
+  <buttongroup name="bgroupMyth"/>
   <buttongroup name="bgroupRightWrist"/>
  </buttongroups>
 </ui>
